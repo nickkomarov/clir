@@ -1,26 +1,250 @@
 @import "tailwindcss";
 
+/* ============================================
+   Design Tokens — sourced from Figma (Clir Design)
+   Colors:     node 3924:5561
+   Typography: node 3924:5657
+   Spacing:    node 3924:5700
+   ============================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --- Primary --- */
+  --color-primary-black: #1A1A1A;
+  --color-primary-amber: #FCA60A;
+  --color-primary-white: #FFFFFF;
+
+  /* --- Neutral --- */
+  --color-neutral-900: #1A1A1A;
+  --color-neutral-800: #2D2D2D;
+  --color-neutral-700: #2B2B2B;
+  --color-neutral-500: #737C7C;
+  --color-neutral-400: #8C8C8C;
+  --color-neutral-200: #D9D9D9;
+  --color-neutral-100: #E6E8E8;
+  --color-neutral-50: #F2F3F3;
+
+  /* --- Amber --- */
+  --color-amber-900: #613D00;
+  --color-amber-800: #8A5800;
+  --color-amber-700: #B37300;
+  --color-amber-500: #FCA60A;
+  --color-amber-400: #FDBA3D;
+  --color-amber-200: #FED88A;
+  --color-amber-100: #FEEABC;
+  --color-amber-50: #FFF6E5;
+
+  /* --- Brand --- */
+  --color-brand-neon: #CCFF01;
+  --color-brand-amber: #FCA60A;
+  --color-brand-gold: #A97D24;
+
+  /* --- Semantic --- */
+  --color-semantic-error: #FF5542;
+  --color-semantic-success: #34A853;
+  --color-semantic-warning: #FBBC05;
+  --color-semantic-info: #4285F4;
+
+  /* --- Background --- */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F2F3F3;
+  --color-bg-dark: #1A1A1A;
+
+  /* --- Spacing --- */
+  --space-4xs: 2px;
+  --space-3xs: 4px;
+  --space-2xs: 8px;
+  --space-xs: 12px;
+  --space-sm: 16px;
+  --space-md: 20px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 40px;
+  --space-3xl: 48px;
+  --space-4xl: 64px;
+
+  /* --- Border Radius --- */
+  --radius-none: 0px;
+  --radius-2xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-toggle: 14px;
+  --radius-lg: 16px;
+  --radius-icon: 20px;
+  --radius-xl: 24px;
+  --radius-pill: 32px;
+  --radius-full: 999px;
+
+  /* --- Elevation --- */
+  --shadow-low: 0px 2px 4px 0px rgba(0, 0, 0, 0.10);
+  --shadow-medium: 0px 4px 12px 0px rgba(0, 0, 0, 0.10);
+  --shadow-high: 0px 8px 24px 0px rgba(0, 0, 0, 0.10);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* --- Colors: Primary --- */
+  --color-primary-black: var(--color-primary-black);
+  --color-primary-amber: var(--color-primary-amber);
+  --color-primary-white: var(--color-primary-white);
+
+  /* --- Colors: Neutral --- */
+  --color-neutral-900: var(--color-neutral-900);
+  --color-neutral-800: var(--color-neutral-800);
+  --color-neutral-700: var(--color-neutral-700);
+  --color-neutral-500: var(--color-neutral-500);
+  --color-neutral-400: var(--color-neutral-400);
+  --color-neutral-200: var(--color-neutral-200);
+  --color-neutral-100: var(--color-neutral-100);
+  --color-neutral-50: var(--color-neutral-50);
+
+  /* --- Colors: Amber --- */
+  --color-amber-900: var(--color-amber-900);
+  --color-amber-800: var(--color-amber-800);
+  --color-amber-700: var(--color-amber-700);
+  --color-amber-500: var(--color-amber-500);
+  --color-amber-400: var(--color-amber-400);
+  --color-amber-200: var(--color-amber-200);
+  --color-amber-100: var(--color-amber-100);
+  --color-amber-50: var(--color-amber-50);
+
+  /* --- Colors: Brand --- */
+  --color-brand-neon: var(--color-brand-neon);
+  --color-brand-amber: var(--color-brand-amber);
+  --color-brand-gold: var(--color-brand-gold);
+
+  /* --- Colors: Semantic --- */
+  --color-semantic-error: var(--color-semantic-error);
+  --color-semantic-success: var(--color-semantic-success);
+  --color-semantic-warning: var(--color-semantic-warning);
+  --color-semantic-info: var(--color-semantic-info);
+
+  /* --- Colors: Background --- */
+  --color-bg-primary: var(--color-bg-primary);
+  --color-bg-secondary: var(--color-bg-secondary);
+  --color-bg-dark: var(--color-bg-dark);
+
+  /* --- Spacing --- */
+  --spacing-4xs: var(--space-4xs);
+  --spacing-3xs: var(--space-3xs);
+  --spacing-2xs: var(--space-2xs);
+  --spacing-xs: var(--space-xs);
+  --spacing-sm: var(--space-sm);
+  --spacing-md: var(--space-md);
+  --spacing-lg: var(--space-lg);
+  --spacing-xl: var(--space-xl);
+  --spacing-2xl: var(--space-2xl);
+  --spacing-3xl: var(--space-3xl);
+  --spacing-4xl: var(--space-4xl);
+
+  /* --- Border Radius --- */
+  --radius-none: var(--radius-none);
+  --radius-2xs: var(--radius-2xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-toggle: var(--radius-toggle);
+  --radius-lg: var(--radius-lg);
+  --radius-icon: var(--radius-icon);
+  --radius-xl: var(--radius-xl);
+  --radius-pill: var(--radius-pill);
+  --radius-full: var(--radius-full);
+
+  /* --- Elevation (Box Shadow) --- */
+  --shadow-low: var(--shadow-low);
+  --shadow-medium: var(--shadow-medium);
+  --shadow-high: var(--shadow-high);
+
+  /* --- Font --- */
+  --font-sans: var(--font-mulish);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================
+   Typography Utility Classes
+   Font: Mulish | Letter-spacing: -0.02em (all styles)
+   Figma style names: text/display, text/h1, etc.
+   ============================================ */
+
+.text-display {
+  font-family: var(--font-sans);
+  font-size: 46px;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: -0.02em;
+}
+
+.text-h1 {
+  font-family: var(--font-sans);
+  font-size: 32px;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: -0.02em;
+}
+
+.text-h2 {
+  font-family: var(--font-sans);
+  font-size: 30px;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: -0.02em;
+}
+
+.text-h3 {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: -0.02em;
+}
+
+.text-body-lg {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.02em;
+}
+
+.text-body-bold {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: -0.02em;
+}
+
+.text-body-semi {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.02em;
+}
+
+.text-label {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 900;
+  line-height: normal;
+  letter-spacing: -0.02em;
+}
+
+.text-caption {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.02em;
+}
+
+.text-caption-bold {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.02em;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  --font-sans: var(--font-mulish), Arial, Helvetica, sans-serif;
+  background: var(--color-bg-primary);
+  color: var(--color-primary-black);
+  font-family: var(--font-sans);
 }

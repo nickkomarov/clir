@@ -25,6 +25,12 @@ const prototypes: { href: string; name: string; description: string }[] = [
     description:
       "Upgrade screen with current plan, Clir Pro features, and Flex reading purchase.",
   },
+  {
+    href: "/prototypes/subscriptions-v2",
+    name: "Subscriptions V2",
+    description:
+      "Interactive 5-screen prototype: home with split pills, sub/flex paywalls, and active reading count screens. Dev toggles above the phone.",
+  },
 ];
 
 export default function Home() {
